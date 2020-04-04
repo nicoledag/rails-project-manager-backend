@@ -5,3 +5,13 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+    users = User.create([{ name: 'Nicole', password: 1234, email: 'nicole@gmail.com'}, { name: 'Sara', password: 1234, email: 'sara@gmail.com'}])
+    clients = Client.create([{ name: 'Lego' }, { name: 'Pokeman' }])
+
+
+    projects = Project.create([{ department: 'marketing', name:'Flyer creation',  desc: 'Kids ages 9-12 winter collection', client_id: 01, user_id: 01, target_completion_date: "2020-04-02" , completion_date: "2020-04-02" },
+    { department: 'tech', name:'new feature', desc:'new mobile feature spring release'}, client_id: 2, user_id: 2, target_completion_date: "2020-01-5", completion_date: "2019-12-8" ])
+    comments = Comment.create([{text: 'Completed early', project_id: 02}, text: "Design first review.", project_id: 01])
+
+ 
