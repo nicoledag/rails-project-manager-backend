@@ -6,6 +6,25 @@ Rails.application.routes.draw do
   delete 'api/v1/logout' => 'api/v1/users#destroy'
   get 'api/v1/get_current_user' => 'api/v1/sessions#get_current_user'
 
+  namespace :api do
+      namespace :v1 do
+
+        resources :users, :clients, :projects
+        resources :comments, only: [:new, :create, :edit, :update, :destroy]
+
+        resources :clients do
+          resources :projects
+        end
+
+        resources :projects do
+          resources :comments, only: [:new, :create, :edit, :update, :destroy]
+        end
+  
+
+      end
+  end
+
+
 end
 
 
