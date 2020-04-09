@@ -6,5 +6,9 @@ class API::V1::UsersController < ApplicationController
         render json: users_json
     end
 
+    def create
+        binding.pry
+    end
+
     
 end
