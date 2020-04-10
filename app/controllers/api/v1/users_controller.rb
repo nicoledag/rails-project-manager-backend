@@ -7,11 +7,10 @@ class API::V1::UsersController < ApplicationController
     end
 
     def create
-        binding.pry
+        # binding.pry
         @user = User.new(user_params)
         if @user.save
             set_session
-
             render json: @user, status: :created
 
         else
