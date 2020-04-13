@@ -1,6 +1,6 @@
 class API::V1::SessionsController < ApplicationController
 
-    def create
+    def create #login form
         # binding.pry
           @user = User.find_by(username: params[:username])
   
@@ -15,7 +15,7 @@ class API::V1::SessionsController < ApplicationController
           end
       end
   
-      def get_current_user
+      def get_current_user #loads on app.js
         # binding.pry
           if logged_in?
             render json: UserSerializer.new(current_user)
