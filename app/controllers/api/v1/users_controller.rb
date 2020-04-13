@@ -14,10 +14,10 @@ class API::V1::UsersController < ApplicationController
             render json: @user, status: :created
 
         else
-            resp = {
+            response = {
                 error:@user.errors_full_messages.to_sentence
             }
-            render json: resp, status: :unprocessable_entity
+            render json: response, status: :unprocessable_entity
     
         end
     end
