@@ -1,5 +1,6 @@
 class API::V1::ProjectsController < ApplicationController
 
+    before_action :set_project, only: [:update, :destroy]
     def index
         # binding.pry
         @projects = current_user.projects

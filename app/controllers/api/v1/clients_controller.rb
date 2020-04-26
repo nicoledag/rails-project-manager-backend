@@ -1,4 +1,7 @@
 class API::V1::ClientsController < ApplicationController
+
+    before_action :set_client, only: [:update, :destroy]
+    
     def index
         # binding.pry
         @clients = Client.all 
