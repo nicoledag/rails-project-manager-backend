@@ -1,7 +1,7 @@
 class ClientSerializer 
     include FastJsonapi::ObjectSerializer
     
-    attributes :name
+    attributes :name, :created_at
 
 
     attribute :projects do |client|

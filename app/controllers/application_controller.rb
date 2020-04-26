@@ -18,6 +18,10 @@ class ApplicationController < ActionController::API
       end
 
 
+      def project_user_equals_current_user
+        @project.user == current_user
+      end
+
 
 
 end
