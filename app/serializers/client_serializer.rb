@@ -11,6 +11,9 @@ class ClientSerializer
           department: project.department,
           desc: project.desc,
           user_id: project.user_id,
+          budget: project.budget,
+          quantity: project.quantity,
+          end_destination: project.end_destination,
           target_completion_date: project.target_completion_date,
           completion_date: project.completion_date,
         }

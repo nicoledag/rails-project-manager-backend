@@ -49,7 +49,7 @@ class API::V1::ProjectsController < ApplicationController
     
     
       def project_params
-        params.require(:project).permit(:name, :desc, :target_completion_date, :completion_date, :client_id)
+        params.require(:project).permit(:name, :desc, :budget, :quantity, :end_destination, :target_completion_date, :completion_date, :client_id)
       end
 
 
