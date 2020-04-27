@@ -9,7 +9,7 @@ class API::V1::ProjectsController < ApplicationController
     end
 
     def create
-        # binding.pry
+        binding.pry
         @project = current_user.projects.build(project_params)
           if @project.save
             render json: ProjectSerializer.new(@project).serialized_json, status: :created
