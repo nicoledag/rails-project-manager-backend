@@ -8,6 +8,7 @@ class ProjectSerializer
           text: comment.text,
           created_at: comment.created_at,
           updated_at: comment.updated_at,
+          comment_id: comment.id,
         }
       end
     end
