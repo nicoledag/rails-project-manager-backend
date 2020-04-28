@@ -6,7 +6,8 @@ class ProjectSerializer
       project.comments.map do |comment|
         {
           text: comment.text,
-          project_id: comment.project_id,
+          created_at: comment.created_at,
+          updated_at: comment.updated_at,
         }
       end
     end
