@@ -5,10 +5,11 @@ class API::V1::CommentsController < ApplicationController
 
 
     def create
-        @project = Project.find(params[:comment][:project_id])  #Project already exists..not building new project so not passing project_id through params.
+      # binding.pry
+        @project = Project.find(params[:comment][:id])  #Project already exists..not building new project so not passing project_id through params.
          if project_user_equals_current_user && @comment = @project.comments.build(comment_params)
           if @comment.save
-            render json: CommentSerializer.new(@comment).serialized_json, status: :created
+            render json: ProjectSerializer.new(@project).serialized_json, status: :created
           else
             response = {
                 error: @comment.errors_full_messages.to_sentence
@@ -50,7 +51,7 @@ class API::V1::CommentsController < ApplicationController
     end
   
     def comment_params
-      params.require(:comment).permit(:content)
+      params.require(:comment).permit(:text)
     end
   
 end

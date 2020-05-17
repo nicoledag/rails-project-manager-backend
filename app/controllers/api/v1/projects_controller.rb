@@ -22,6 +22,7 @@ class API::V1::ProjectsController < ApplicationController
       end
     
       def update
+        # binding.pry
         if project_user_equals_current_user && @project.update(project_params)
             render json: ProjectSerializer.new(@project).serialized_json, status: :created
         else
@@ -33,6 +34,7 @@ class API::V1::ProjectsController < ApplicationController
       end
     
       def destroy
+        # binding.pry
         # raise params.inspect
         if project_user_equals_current_user
           @project.destroy
