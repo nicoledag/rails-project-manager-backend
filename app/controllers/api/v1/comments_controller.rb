@@ -21,7 +21,7 @@ class API::V1::CommentsController < ApplicationController
 
     def update
         if project_user_equals_current_user && @comment.update(comment_params)
-          render json: CommentSerializer.new(@comment).serialized_json, status: :created
+          render json: ProjectSerializer.new(@project).serialized_json, status: :created
         else
             response = {
               error: @comment.errors_full_messages.to_sentence
@@ -31,9 +31,10 @@ class API::V1::CommentsController < ApplicationController
     end
   
     def destroy
-        if project_user_equals_current_user
+      # binding.pry
+        if @project = Project.find_by(id: params[:project_id])
           @comment.destroy
-          render json: CommentSerializer.new(@comment).serialized_json, status: :created
+          render json: ProjectSerializer.new(@project).serialized_json, status: :created
         else
           render json: {error: 'Cannot destroy'}
         end
@@ -51,7 +52,7 @@ class API::V1::CommentsController < ApplicationController
     end
   
     def comment_params
-      params.require(:comment).permit(:text)
+      params.require(:comment).permit(:text, :project_id)
     end
   
 end
