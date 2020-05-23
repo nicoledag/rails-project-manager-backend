@@ -27,6 +27,7 @@ class API::V1::CommentsController < ApplicationController
     end
 
     def update
+      # binding.pry
         if project_user_equals_current_user && @comment.update(comment_params)
           render json: ProjectSerializer.new(@project).serialized_json, status: :created
         else
