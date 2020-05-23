@@ -10,7 +10,7 @@ Rails.application.routes.draw do
       namespace :v1 do
 
         resources :users, :clients, :projects
-        resources :comments, only: [:new, :create, :edit, :update, :destroy]
+        resources :comments
 
         resources :clients do
           resources :projects

@@ -3,6 +3,13 @@ class API::V1::CommentsController < ApplicationController
     before_action :set_comment, only: [:update, :destroy]
     before_action :project_comment, only: [:update, :destroy]
 
+    def index
+      # binding.pry
+      @comments = Comment.all
+      comments_json = CommentSerializer.new(@comments).serialized_json
+      render json: comments_json
+  end
+
 
     def create
       # binding.pry
